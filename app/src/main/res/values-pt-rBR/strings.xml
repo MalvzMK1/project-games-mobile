@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Games</string>
     <string name="login_text">Login</string>
     <string name="welcome_message">Welcome!</string>
     <string name="description_text">Com o nosso aplicativo será muito mais fácil e divertido manter o controle dos seus games!</string>
