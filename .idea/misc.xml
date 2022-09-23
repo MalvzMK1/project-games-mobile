@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_wave.xml" value="0.4185" />
         <entry key="app/src/main/res/drawable/ic_wave_bottom.xml" value="0.4185" />
         <entry key="app/src/main/res/drawable/ic_wave_top.xml" value="0.4185" />
         <entry key="app/src/main/res/drawable/input_background.xml" value="0.4185" />
+        <entry key="app/src/main/res/drawable/waves.xml" value="0.4185" />
         <entry key="app/src/main/res/drawable/waves_background.xml" value="0.4185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5223958333333333" />
       </map>
