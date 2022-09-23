@@ -9,4 +9,13 @@
     <string name="login_button_text">Enter</string>
     <string name="text_signup">Create an account</string>
     <string name="copyright_message">Developed by DS2M</string>
+    <string name="text_new_account">New account</string>
+    <string name="text_choose_photo">Let\'s choose a photo?</string>
+    <string name="text_autentication_datas">Autentication datas</string>
+    <string name="text_personal_datas">Personal datas</string>
+    <string name="edit_name_hint">What\'s your name?</string>
+    <string name="edit_city_hint">What\'s your city</string>
+    <string name="edit_birthdate_hint">Birth date</string>
+    <string name="text_gamer_level">What\'s your gamer level?</string>
+    <string name="gamer_level">Casual</string>
 </resources>

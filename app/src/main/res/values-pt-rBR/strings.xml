@@ -6,8 +6,17 @@
     <string name="description_text">Com o nosso aplicativo será muito mais fácil e divertido manter o controle dos seus games!</string>
     <string name="edit_email_hint">E-mail</string>
     <string name="edit_password_hint">Senha</string>
-    <string name="check_remember_me">Remember me</string>
-    <string name="login_button_text">Enter</string>
-    <string name="text_signup">Create an account</string>
-    <string name="copyright_message">Developed by DS2M</string>
+    <string name="check_remember_me">Lembrar-me</string>
+    <string name="login_button_text">Entrar</string>
+    <string name="text_signup">Criar nova conta</string>
+    <string name="copyright_message">Desenvolvido pelo DS2M</string>
+    <string name="text_new_account">Nova conta</string>
+    <string name="text_choose_photo">Vamos escolher uma foto?</string>
+    <string name="text_autentication_datas">Dados para autenticação</string>
+    <string name="text_personal_datas">Dados pessoais</string>
+    <string name="edit_name_hint">Qual é o seu nome?</string>
+    <string name="edit_city_hint">Qual é a sua cidade?</string>
+    <string name="edit_birthdate_hint">Data de nascimento</string>
+    <string name="text_gamer_level">Qual o seu nível gamer?</string>
+    <string name="gamer_level">Casual</string>
 </resources>
