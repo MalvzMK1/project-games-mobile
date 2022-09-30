@@ -19,4 +19,10 @@
     <string name="edit_birthdate_hint">Data de nascimento</string>
     <string name="text_gamer_level">Qual o seu nível gamer?</string>
     <string name="gamer_level">Casual</string>
+    <string name="text_favorite_console">Qual é o seu console favorito?</string>
+    <string name="text_gender_selection">Sexo:</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="text_username">User Name</string>
+    <string name="text_user_email">example123@gmail.com</string>
 </resources>
