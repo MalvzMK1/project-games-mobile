@@ -7,4 +7,12 @@
         android:icon="@drawable/ic_save"
         android:iconTint="@color/white"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_exit"
+        android:title="@string/text_menu_exit"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_settings"
+        android:title="Configurações"
+        app:showAsAction="never"/>
 </menu>

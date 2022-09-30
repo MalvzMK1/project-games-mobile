@@ -27,6 +27,7 @@
     <string name="text_user_email">example123@gmail.com</string>
     <string name="text_finished_games_label">Jogos Finalizados</string>
     <string name="text_currently_play_label">Atualmente Jogando</string>
-    <string name="text_age_label">Age</string>
-    <string name="text_exhibited_level">Exhibited Level</string>
+    <string name="text_age_label">Idade</string>
+    <string name="text_exhibited_level">Nível Exibido</string>
+    <string name="text_menu_exit">Sair</string>
 </resources>

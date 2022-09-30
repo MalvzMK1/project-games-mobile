@@ -8,6 +8,7 @@ import br.senai.sp.jandira.games.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         binding.createAccountButton.setOnClickListener {
             val openActivitySignup = Intent(this, SignupActivity::class.java)
             startActivity(openActivitySignup)
+        }
+
+        binding.enterButton.setOnClickListener {
+            val openActivityGamesList = Intent(this, GamesListActivity::class.java)
+            startActivity(openActivityGamesList)
         }
     }
 }

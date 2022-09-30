@@ -28,4 +28,5 @@
     <string name="text_currently_play_label">Currently Playing</string>
     <string name="text_age_label">Age</string>
     <string name="text_exhibited_level">Exhibited Level</string>
+    <string name="text_menu_exit">Exit</string>
 </resources>
