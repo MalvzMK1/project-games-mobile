@@ -21,8 +21,12 @@
     <string name="gamer_level">Casual</string>
     <string name="text_favorite_console">Qual é o seu console favorito?</string>
     <string name="text_gender_selection">Sexo:</string>
-    <string name="gender_male">Male</string>
-    <string name="gender_female">Female</string>
-    <string name="text_username">User Name</string>
+    <string name="gender_male">Masculino</string>
+    <string name="gender_female">Faminino</string>
+    <string name="text_username">Nome De Usuário</string>
     <string name="text_user_email">example123@gmail.com</string>
+    <string name="text_finished_games_label">Jogos Finalizados</string>
+    <string name="text_currently_play_label">Atualmente Jogando</string>
+    <string name="text_age_label">Age</string>
+    <string name="text_exhibited_level">Exhibited Level</string>
 </resources>

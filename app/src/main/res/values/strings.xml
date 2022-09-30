@@ -24,4 +24,8 @@
     <string name="gender_female">Female</string>
     <string name="text_username">User Name</string>
     <string name="text_user_email">example123@gmail.com</string>
+    <string name="text_finished_games_label">Finished Games</string>
+    <string name="text_currently_play_label">Currently Playing</string>
+    <string name="text_age_label">Age</string>
+    <string name="text_exhibited_level">Exhibited Level</string>
 </resources>
