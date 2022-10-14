@@ -30,4 +30,19 @@
     <string name="text_age_label">Idade</string>
     <string name="text_exhibited_level">Nível Exibido</string>
     <string name="text_menu_exit">Sair</string>
+    <string name="text_registered_games">Your registered games</string>
+
+    <string-array name="consoles">
+        <item>Playstation 5</item>
+        <item>Xbox Series S/X</item>
+        <item>Nintendo Switch</item>
+        <item>Playstation 4</item>
+        <item>Xbox One</item>
+        <item>Nintendo 64</item>
+        <item>Playstation 3</item>
+        <item>Xbox 360</item>
+        <item>Atari</item>
+        <item>Playstation 2</item>
+        <item>PC</item>
+    </string-array>
 </resources>

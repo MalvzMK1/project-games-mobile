@@ -188,16 +188,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
             <com.google.android.material.slider.Slider
-                android:id="@+id/slider"
+                android:id="@+id/slider_gamer_level"
                 android:layout_width="0dp"
                 android:layout_height="5dp"
                 android:layout_marginEnd="32dp"
-                app:layout_constraintEnd_toStartOf="@+id/textView13"
+                android:stepSize="1"
+                android:valueFrom="0"
+                android:valueTo="100"
+                app:layout_constraintEnd_toStartOf="@+id/textview_gamer_level"
                 app:layout_constraintStart_toStartOf="@id/text_gamer_level"
                 app:layout_constraintTop_toBottomOf="@id/text_gamer_level" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textview_gamer_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
@@ -205,10 +208,10 @@
                 android:textColor="@color/primary_color"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/slider"
+                app:layout_constraintBottom_toBottomOf="@+id/slider_gamer_level"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/slider"
-                app:layout_constraintTop_toTopOf="@+id/slider" />
+                app:layout_constraintStart_toEndOf="@+id/slider_gamer_level"
+                app:layout_constraintTop_toTopOf="@+id/slider_gamer_level" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -217,8 +220,8 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/text_favorite_console"
                 android:textColor="@color/text_color"
-                app:layout_constraintStart_toStartOf="@+id/slider"
-                app:layout_constraintTop_toBottomOf="@+id/slider" />
+                app:layout_constraintStart_toStartOf="@+id/slider_gamer_level"
+                app:layout_constraintTop_toBottomOf="@+id/slider_gamer_level" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -237,6 +240,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:clipChildren="false"
+                android:entries="@array/consoles"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
