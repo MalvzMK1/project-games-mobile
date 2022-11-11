@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.adapter.GamesAdapter
-import br.senai.sp.jandira.games.dao.GamesDao
 import br.senai.sp.jandira.games.databinding.ActivityGamesListBinding
 
 
@@ -27,7 +26,7 @@ class GamesListActivity : AppCompatActivity() {
         rvGames = binding.recyclerViewGames
         rvGames.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         adapterGames = GamesAdapter(this)
-        adapterGames.updateGamesList(GamesDao.getGames(this))
+        adapterGames.updateGamesList(TODO("IMPLEMENTAR A DAO"))
 
         rvGames.adapter = adapterGames
 

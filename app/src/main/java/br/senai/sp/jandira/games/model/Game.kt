@@ -5,7 +5,7 @@ import androidx.room.*
 import java.time.LocalDate
 
 @Entity(tableName = "tbl_games")
-data class Games (
+data class Game (
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     @ColumnInfo(name = "company_name")
@@ -13,8 +13,8 @@ data class Games (
     @ColumnInfo(name = "game_name")
     val gameName: String,
     val description: String,
-    val photo: Bitmap?,
+//    val photo: Bitmap? = null,
     @ColumnInfo(name = "release_date")
-    val releaseDate: LocalDate,
+    val releaseDate: String,
     val finished: Boolean,
 )

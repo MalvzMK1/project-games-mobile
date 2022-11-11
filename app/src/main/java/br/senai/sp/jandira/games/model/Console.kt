@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import androidx.room.*
 import java.time.LocalDate
 
-@Entity
+@Entity(tableName = "tbl_console")
 data class Console(
   @PrimaryKey(autoGenerate = true)
   val id: Int = 0,
@@ -12,7 +12,7 @@ data class Console(
   @ColumnInfo(name = "company_name")
   val companyName: String,
   val description: String,
-  val photo: Bitmap?,
+//  val photo: Bitmap? = null,
   @ColumnInfo(name = "release_date")
-  val releaseDate: LocalDate,
+  val releaseDate: String,
 )

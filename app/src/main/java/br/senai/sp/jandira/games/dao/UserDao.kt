@@ -6,6 +6,12 @@ import br.senai.sp.jandira.games.model.User
 @Dao
 interface UserDao {
 
+  @Query("SELECT * FROM tbl_user ORDER BY name ASC")
+  fun getAllUsers(): List<User>
+
+  @Query("SELECT * FROM tbl_user WHERE id = :id")
+  fun getUser(id: Int): User
+
   @Insert
   fun save(user: User): Long
 
@@ -14,11 +20,5 @@ interface UserDao {
 
   @Delete
   fun delete(user: User): Int
-
-  @Query("SELECT * FROM tbl_user ORDER BY name ASC")
-  fun getAllUsers(): List<User>
-
-  @Query("SELECT * FROM tbl_user WHERE id = :id")
-  fun getUser(id: Int): User
 
 }

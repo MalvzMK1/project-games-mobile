@@ -8,13 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games.R
-import br.senai.sp.jandira.games.model.Games
+import br.senai.sp.jandira.games.model.Game
 
 class GamesAdapter(val context: Context): RecyclerView.Adapter<GamesAdapter.HolderGames>() {
 
-    private var gamesList = listOf<Games>()
+    private var gamesList = listOf<Game>()
 
-    fun updateGamesList(games: List<Games>) {
+    fun updateGamesList(games: List<Game>) {
         this.gamesList = games
         notifyDataSetChanged()
     }
@@ -26,12 +26,12 @@ class GamesAdapter(val context: Context): RecyclerView.Adapter<GamesAdapter.Hold
         val descriptiomHolder = view.findViewById<TextView>(R.id.text_view_description)
         val photoHolder = view.findViewById<ImageView>(R.id.image_view_game_photo)
 
-        fun bind(games: Games) {
+        fun bind(games: Game) {
 
             companyNameHolder.text = games.companyName
             gameNameHolder.text = games.gameName
             descriptiomHolder.text = games.description
-            photoHolder.setImageDrawable(games.photo)
+            photoHolder.setImageDrawable(null)
 
         }
 

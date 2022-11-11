@@ -9,7 +9,7 @@ data class User(
   @PrimaryKey(autoGenerate = true)
   val id: Int = 0,
   @ColumnInfo(name = "profile_photo")
-  val profilePhoto: Bitmap?,
+//  val profilePhoto: Bitmap? = null,
   val name: String,
   val email: String,
   val password: String,
@@ -17,9 +17,9 @@ data class User(
   val favoriteConsole: String,
   val city: String,
   @ColumnInfo(name = "birth_date")
-  val birthDate: LocalDate,
+  val birthDate: String,
   @ColumnInfo(name = "gamer_level")
   val gamerLevel: GamerLevels = GamerLevels.NOOB,
   val gender: Char,
-  val games: List<Games>,
+  val games: List<Game>,
 )
