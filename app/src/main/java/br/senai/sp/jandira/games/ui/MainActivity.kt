@@ -1,10 +1,10 @@
-package br.senai.sp.jandira.games
+package br.senai.sp.jandira.games.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import br.senai.sp.jandira.games.databinding.ActivityMainBinding
+import br.senai.sp.jandira.games.model.User
 import java.util.*
 
 class MainActivity : AppCompatActivity() {

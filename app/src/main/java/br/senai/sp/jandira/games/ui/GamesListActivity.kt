@@ -1,10 +1,11 @@
-package br.senai.sp.jandira.games
+package br.senai.sp.jandira.games.ui
 
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.adapter.GamesAdapter
 import br.senai.sp.jandira.games.dao.GamesDao
 import br.senai.sp.jandira.games.databinding.ActivityGamesListBinding

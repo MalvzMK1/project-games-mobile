@@ -12,7 +12,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="0dp"
@@ -70,8 +69,10 @@
                 android:id="@+id/text_view_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="Street Fighter, popularmente abreviado para SF, é uma popular série de jogos de luta."
                 android:textColor="@color/primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/cardView"
                 app:layout_constraintStart_toStartOf="@+id/text_view_game_name"
                 app:layout_constraintTop_toBottomOf="@+id/text_view_game_name" />
