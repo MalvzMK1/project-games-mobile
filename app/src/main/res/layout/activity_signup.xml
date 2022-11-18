@@ -103,11 +103,11 @@
                 android:text="@string/text_personal_datas"
                 android:textColor="@color/terciary_color"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPassword3"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
+                app:layout_constraintStart_toStartOf="@+id/edit_text_user_password"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_user_password" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress3"
+                android:id="@+id/edit_text_user_email"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -122,7 +122,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <EditText
-                android:id="@+id/editTextTextPassword3"
+                android:id="@+id/edit_text_user_password"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -131,12 +131,12 @@
                 android:inputType="textPassword"
                 android:textColorHint="@color/text_color"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress3"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress3"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
+                app:layout_constraintEnd_toEndOf="@+id/edit_text_user_email"
+                app:layout_constraintStart_toStartOf="@+id/edit_text_user_email"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_user_email" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/edit_text_user_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -145,12 +145,12 @@
                 android:inputType="textPersonName"
                 android:textColorHint="@color/text_color"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword3"
+                app:layout_constraintEnd_toEndOf="@+id/edit_text_user_password"
                 app:layout_constraintStart_toStartOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/edit_text_user_city"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -159,12 +159,12 @@
                 android:inputType="textPersonName"
                 android:textColorHint="@color/text_color"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+                app:layout_constraintEnd_toEndOf="@+id/edit_text_user_name"
+                app:layout_constraintStart_toStartOf="@+id/edit_text_user_name"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_user_name" />
 
             <EditText
-                android:id="@+id/editTextDate"
+                android:id="@+id/edit_text_user_birthdate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -173,9 +173,9 @@
                 android:inputType="date"
                 android:textColorHint="@color/text_color"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+                app:layout_constraintEnd_toEndOf="@+id/edit_text_user_city"
+                app:layout_constraintStart_toStartOf="@+id/edit_text_user_city"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_user_city" />
 
             <TextView
                 android:id="@+id/text_gamer_level"
@@ -184,8 +184,8 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/text_gamer_level"
                 android:textColor="@color/text_color"
-                app:layout_constraintStart_toStartOf="@+id/editTextDate"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+                app:layout_constraintStart_toStartOf="@+id/edit_text_user_birthdate"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_user_birthdate" />
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/slider_gamer_level"
@@ -230,11 +230,11 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/text_gender_selection"
                 android:textColor="@color/text_color"
-                app:layout_constraintStart_toStartOf="@+id/spinner"
-                app:layout_constraintTop_toBottomOf="@+id/spinner" />
+                app:layout_constraintStart_toStartOf="@+id/favorite_console_spinner"
+                app:layout_constraintTop_toBottomOf="@+id/favorite_console_spinner" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/favorite_console_spinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -253,7 +253,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView9">
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/radio_button_male"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/text_color"
@@ -262,7 +262,7 @@
                     android:textColor="@color/text_color" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radio_button_female"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/text_color"

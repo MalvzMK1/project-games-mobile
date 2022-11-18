@@ -1,7 +1,6 @@
 package br.senai.sp.jandira.games.repository
 
 import android.content.Context
-import br.senai.sp.jandira.games.dao.GameTestDao
 import br.senai.sp.jandira.games.dao.GamesDb
 import br.senai.sp.jandira.games.model.Game
 
@@ -22,7 +21,7 @@ class GameRepository (context: Context) {
   }
 
   fun getAll (): List<Game> {
-    return GameTestDao.getAllGames()
+    return db.getAllGames()
   }
 
   fun getGameById(gameId: Int): Game {

@@ -31,6 +31,19 @@
     <string name="text_exhibited_level">Nível Exibido</string>
     <string name="text_menu_exit">Sair</string>
     <string name="text_registered_games">Your registered games</string>
+    <string name="add_new_game">Adicione um novo jogo à sua lista!</string>
+    <string name="form_company_name">Nome da empresa</string>
+    <string name="form_game_name">Nome do jogo</string>
+    <string name="insert_company_name_hint">Insira o nome da empresa</string>
+    <string name="insert_game_name_hint">Insira o nome do jogo</string>
+    <string name="form_game_description">Insira uma descrição breve</string>
+    <string name="insert_short_description_hint">Insira o </string>
+    <string name="form_release_date">Release date</string>
+    <string name="insert_release_date_hint">Insert the release date</string>
+    <string name="form_finished_game">Have you finished this game already?</string>
+    <string name="finished_yes_option">Yes</string>
+    <string name="finished_no_option">No</string>
+    <string name="save_button">Save</string>
 
     <string-array name="consoles">
         <item>Playstation 5</item>

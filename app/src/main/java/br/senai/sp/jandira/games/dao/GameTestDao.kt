@@ -11,7 +11,7 @@ abstract class GameTestDao {
       val game2 = Game( 0 , "Activision", "Warzone 2.0", "Um jogo de fps desenvolvido pela activision...", "2017-05-23", true )
       val game3 = Game( 0 , "Lorna Shore", "Pain Remains", "Literalmente o melhor álbum de deathmetal do ano...", "2017-05-23", true )
 
-      return listOf<Game>(game1, game2, game3)
+      return listOf(game1, game2, game3)
     }
   }
 }

@@ -30,6 +30,19 @@
     <string name="text_exhibited_level">Exhibited Level</string>
     <string name="text_menu_exit">Exit</string>
     <string name="text_registered_games">Your registered games</string>
+    <string name="add_new_game">Add a new Game to your list!</string>
+    <string name="form_company_name">Company name</string>
+    <string name="form_game_name">Game name</string>
+    <string name="insert_company_name_hint">Insert the company name</string>
+    <string name="insert_game_name_hint">Insert the game name</string>
+    <string name="form_game_description">Insert a short description</string>
+    <string name="insert_short_description_hint">Insert a short description about the game</string>
+    <string name="form_release_date">Release date</string>
+    <string name="insert_release_date_hint">Insert the release date</string>
+    <string name="form_finished_game">Have you finished this game already?</string>
+    <string name="finished_yes_option">Yes</string>
+    <string name="finished_no_option">No</string>
+    <string name="save_button">Save</string>
 
     <string-array name="consoles">
         <item>Playstation 5</item>
