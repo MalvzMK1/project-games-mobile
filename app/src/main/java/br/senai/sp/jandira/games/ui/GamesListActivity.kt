@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.adapter.GamesAdapter
 import br.senai.sp.jandira.games.databinding.ActivityGamesListBinding
+import br.senai.sp.jandira.games.repository.GameRepository
 
 
 class GamesListActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class GamesListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val gameRepository = GameRepository(this)
         binding = ActivityGamesListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -26,7 +28,7 @@ class GamesListActivity : AppCompatActivity() {
         rvGames = binding.recyclerViewGames
         rvGames.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         adapterGames = GamesAdapter(this)
-        adapterGames.updateGamesList(TODO("IMPLEMENTAR A DAO"))
+        adapterGames.updateGamesList(gameRepository.getAll())
 
         rvGames.adapter = adapterGames
 

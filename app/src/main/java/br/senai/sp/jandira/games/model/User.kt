@@ -8,7 +8,7 @@ import java.time.LocalDate
 data class User(
   @PrimaryKey(autoGenerate = true)
   val id: Int = 0,
-  @ColumnInfo(name = "profile_photo")
+//  @ColumnInfo(name = "profile_photo")
 //  val profilePhoto: Bitmap? = null,
   val name: String,
   val email: String,
@@ -21,5 +21,5 @@ data class User(
   @ColumnInfo(name = "gamer_level")
   val gamerLevel: GamerLevels = GamerLevels.NOOB,
   val gender: Char,
-  val games: List<Game>,
+//  val games: List<Game>,
 )
