@@ -21,7 +21,7 @@ abstract class UserDb: RoomDatabase() {
         instance = Room.databaseBuilder(
           context,
           UserDb::class.java,
-          "db_games"
+          "db_user"
         ).allowMainThreadQueries().build()
       }
       return instance

@@ -21,7 +21,7 @@ abstract class ConsoleDb: RoomDatabase() {
         instance = Room.databaseBuilder(
           context,
           ConsoleDb::class.java,
-          "db_games"
+          "db_console"
         ).allowMainThreadQueries().build()
       }
       return instance

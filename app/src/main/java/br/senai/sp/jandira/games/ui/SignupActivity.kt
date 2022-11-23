@@ -26,14 +26,14 @@ class SignupActivity : AppCompatActivity() {
             setGamerLevel()
         }
 
-        var gamerLevel = binding.sliderGamerLevel.value
+        var gamerLevel = binding.sliderGamerLevel.value.toString().toFloat()
         if (gamerLevel < 25) {
             binding.textGamerLevel.text = "Noob"
-        } else if (gamerLevel < 50) {
+        } else if (gamerLevel >= 25 && gamerLevel < 50) {
             binding.textGamerLevel.text = "Casual"
-        } else if (gamerLevel < 75) {
+        } else if (gamerLevel >= 50 && gamerLevel < 75) {
             binding.textGamerLevel.text = "Advanced"
-        } else {
+        } else if (gamerLevel >= 75 && gamerLevel < 100){
             binding.textGamerLevel.text = "Competitive"
         }
     }
@@ -79,17 +79,33 @@ class SignupActivity : AppCompatActivity() {
             userLevel = GamerLevels.COMPETITIVE
         }
 
-        val userInfos = User(0, userName, userEmail, userPassword, favoriteConsole = "Playstation", userCity, userBirthDate, userLevel, 'M')
+        val userInfos = User(
+            0,
+            userName,
+            userEmail,
+            userPassword,
+            "Playstation",
+            userCity,
+            userBirthDate,
+            userLevel,
+            'M')
 
+        userRepository = UserRepository(this)
         userRepository.save(userInfos)
         Toast.makeText(this, "Usuario salvo", Toast.LENGTH_SHORT).show()
     }
 
-    private fun setGamerLevel() {
+    private fun setGamerLevel(): String {
         val sliderGamerLevel = binding.sliderGamerLevel.value.toString().toInt()
-//        Toast.makeText(this, "Hello world!", Toast.LENGTH_SHORT).show()
-        if (sliderGamerLevel == 20) {
-            Toast.makeText(this, "20", Toast.LENGTH_SHORT).show()
+        if (sliderGamerLevel < 25) {
+            return GamerLevels.NOOB.toString()
+        } else if (sliderGamerLevel >= 25 && sliderGamerLevel< 50) {
+            return GamerLevels.CASUAL.toString()
+        } else if (sliderGamerLevel >= 50 && sliderGamerLevel< 75) {
+            return GamerLevels.ADVANCED.toString()
+        } else if (sliderGamerLevel >= 75 && sliderGamerLevel< 100) {
+            return GamerLevels.COMPETITIVE.toString()
         }
+        return GamerLevels.NOOB.toString()
     }
 }
