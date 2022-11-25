@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.RadioButton
 import android.widget.Toast
 import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.databinding.ActivitySignupBinding
@@ -13,24 +15,34 @@ import br.senai.sp.jandira.games.model.GamerLevels
 import br.senai.sp.jandira.games.model.User
 import br.senai.sp.jandira.games.repository.ConsoleRepository
 import br.senai.sp.jandira.games.repository.UserRepository
+import br.senai.sp.jandira.games.utils.getBitmapUri
+import br.senai.sp.jandira.games.utils.getByteArrayFromBitmap
 
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignupBinding
-    private lateinit var userRepository: UserRepository
     private lateinit var profileImg: Bitmap
+    private val IMAGE_REQUEST_CODE = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.sliderGamerLevel.setOnClickListener {
-            setGamerLevel()
-        }
-
         sliderListen()
 
+        binding.selectedImage.visibility = View.INVISIBLE
+
+        binding.profileImageButton.setOnClickListener {
+            pickImageFromGallery()
+        }
+
+    }
+
+    private fun pickImageFromGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_REQUEST_CODE)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,9 +59,11 @@ class SignupActivity : AppCompatActivity() {
             startActivity(openMainActivity)
             return true
         } else if (item.itemId == R.id.menu_save) {
-//            saveUser()
-            startActivity(openMainActivity)
-            return true
+            if(validateForm()) {
+                UserRepository(this).save(getForm())
+                startActivity(openMainActivity)
+            }
+            return false
         }
 
         return true
@@ -113,21 +127,30 @@ class SignupActivity : AppCompatActivity() {
         )
         val level = getSliderLevel(binding.sliderGamerLevel.value.toInt())
         val console = ConsoleRepository(this).getConsoleByName(getSpinnerValue())
-        val picture = getByteArrayFromBitmap(profilePicture)
-        // genre
-        val inputRadio = binding.genreRadioGroup.checkedRadioButtonId
-        val genre = findViewById<RadioButton>(inputRadio).text.toString()[0]
+        val picture = getByteArrayFromBitmap(profileImg)
+
+        val inputRadio = binding.genderRadiogroup.checkedRadioButtonId
+        val gender = findViewById<RadioButton>(inputRadio).text.toString()[0]
 
         return User(
-            profilePicture = picture,
-            userName = name,
+            profilePhoto = picture,
+            name = name,
             email = email,
             password = password,
-            birthday = birthday,
+            birthDate = birthday,
             city = city,
-            console = console,
-            level = level,
-            genre = genre
+            favoriteConsole = console,
+            gamerLevel = level,
+            gender = gender
         )
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
+            this.profileImg = getBitmapUri(data?.data, this)
+            binding.selectedImage.visibility = View.VISIBLE
+            binding.selectedImage.setImageBitmap(profileImg)
+        }
     }
 }

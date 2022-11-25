@@ -6,13 +6,13 @@ import br.senai.sp.jandira.games.model.Console
 @Dao
 interface ConsoleDao {
 
-  @Query("SELECT * FROM tbl_console ORDER BY name ASC")
+  @Query("SELECT * FROM tbl_console ORDER BY console_name ASC")
   fun getAllConsoles(): List<Console>
 
-  @Query("SELECT * FROM tbl_console WHERE name = :name")
+  @Query("SELECT * FROM tbl_console WHERE console_name = :name")
   fun getConsoleByName(name: String): Console
 
-  @Query("SELECT * FROM tbl_console WHERE id = :id")
+  @Query("SELECT * FROM tbl_console WHERE id_console = :id")
   fun getConsoleById(id: Int): Console
 
   @Insert

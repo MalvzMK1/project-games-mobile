@@ -1,12 +1,12 @@
 package br.senai.sp.jandira.games.repository
 
 import android.content.Context
-import br.senai.sp.jandira.games.dao.GamesDb
+import br.senai.sp.jandira.games.dao.MainDb
 import br.senai.sp.jandira.games.model.Game
 
 class GameRepository (context: Context) {
 
-  private val db = GamesDb.getDatabase(context).gameDao()
+  private val db = MainDb.getDatabase(context).gameDao()
 
   fun save (game: Game): Long {
     return db.save(game)

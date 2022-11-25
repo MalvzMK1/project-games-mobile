@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/text_view_current_playing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-6dp"
@@ -30,7 +30,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/text_view_user_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-6dp"
@@ -62,8 +62,8 @@
             android:textAlignment="center"
             android:textColor="@color/text_color_secondary"
             android:textSize="11sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView17"
-            app:layout_constraintStart_toStartOf="@+id/textView17"
+            app:layout_constraintEnd_toEndOf="@+id/text_view_user_age"
+            app:layout_constraintStart_toStartOf="@+id/text_view_user_age"
             app:layout_constraintTop_toTopOf="@+id/textView14" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -76,7 +76,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textview_user_name"
+                android:id="@+id/text_view_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -89,7 +89,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textview_user_name2"
+                android:id="@+id/text_view_user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-4dp"
@@ -98,8 +98,8 @@
                 android:textColor="@color/primary_color"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textview_user_name"
-                app:layout_constraintTop_toBottomOf="@+id/textview_user_name" />
+                app:layout_constraintStart_toStartOf="@+id/text_view_user_name"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_user_name" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="48dp"
@@ -111,7 +111,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/user_profile_photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/ic_person"
@@ -129,12 +129,12 @@
             android:textAlignment="center"
             android:textColor="@color/text_color_secondary"
             android:textSize="11sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView6"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="@+id/text_view_finished_games"
+            app:layout_constraintStart_toStartOf="@+id/text_view_finished_games"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/text_view_finished_games"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
@@ -169,7 +169,7 @@
             tools:srcCompat="@drawable/level_icon" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/text_view_user_gamer_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_exhibited_level"

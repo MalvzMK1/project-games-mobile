@@ -6,10 +6,10 @@ import br.senai.sp.jandira.games.model.User
 @Dao
 interface UserDao {
 
-  @Query("SELECT * FROM tbl_user ORDER BY name ASC")
+  @Query("SELECT * FROM tbl_user ORDER BY user_name ASC")
   fun getAllUsers(): List<User>
 
-  @Query("SELECT * FROM tbl_user WHERE id = :id")
+  @Query("SELECT * FROM tbl_user WHERE id_user = :id")
   fun getUser(id: Int): User
 
   @Insert
