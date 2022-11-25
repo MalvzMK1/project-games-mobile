@@ -9,8 +9,11 @@ interface ConsoleDao {
   @Query("SELECT * FROM tbl_console ORDER BY name ASC")
   fun getAllConsoles(): List<Console>
 
+  @Query("SELECT * FROM tbl_console WHERE name = :name")
+  fun getConsoleByName(name: String): Console
+
   @Query("SELECT * FROM tbl_console WHERE id = :id")
-  fun getConsole(id: Int): Console
+  fun getConsoleById(id: Int): Console
 
   @Insert
   fun save(console: Console): Long

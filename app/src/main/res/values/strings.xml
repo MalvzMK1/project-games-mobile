@@ -20,8 +20,8 @@
     <string name="gamer_level">Casual</string>
     <string name="text_favorite_console">What\'s your favorite console?</string>
     <string name="text_gender_selection">Sex:</string>
-    <string name="gender_male">Male</string>
-    <string name="gender_female">Female</string>
+    <string name="gender_male">Masculine</string>
+    <string name="gender_female">Feminine</string>
     <string name="text_username">User Name</string>
     <string name="text_user_email">example123@gmail.com</string>
     <string name="text_finished_games_label">Finished Games</string>

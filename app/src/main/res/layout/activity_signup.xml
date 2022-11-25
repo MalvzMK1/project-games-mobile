@@ -56,11 +56,12 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:id="@+id/profile_image_button"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="28dp"
                 android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10"
@@ -91,7 +92,7 @@
                 android:textColor="@color/terciary_color"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_image_button" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -246,6 +247,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <RadioGroup
+                android:id="@+id/gender_radiogroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"

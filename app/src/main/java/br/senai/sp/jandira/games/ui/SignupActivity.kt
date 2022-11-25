@@ -1,6 +1,7 @@
 package br.senai.sp.jandira.games.ui
 
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -10,12 +11,14 @@ import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.databinding.ActivitySignupBinding
 import br.senai.sp.jandira.games.model.GamerLevels
 import br.senai.sp.jandira.games.model.User
+import br.senai.sp.jandira.games.repository.ConsoleRepository
 import br.senai.sp.jandira.games.repository.UserRepository
 
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignupBinding
     private lateinit var userRepository: UserRepository
+    private lateinit var profileImg: Bitmap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,16 +29,8 @@ class SignupActivity : AppCompatActivity() {
             setGamerLevel()
         }
 
-        var gamerLevel = binding.sliderGamerLevel.value.toString().toFloat()
-        if (gamerLevel < 25) {
-            binding.textGamerLevel.text = "Noob"
-        } else if (gamerLevel >= 25 && gamerLevel < 50) {
-            binding.textGamerLevel.text = "Casual"
-        } else if (gamerLevel >= 50 && gamerLevel < 75) {
-            binding.textGamerLevel.text = "Advanced"
-        } else if (gamerLevel >= 75 && gamerLevel < 100){
-            binding.textGamerLevel.text = "Competitive"
-        }
+        sliderListen()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -52,7 +47,7 @@ class SignupActivity : AppCompatActivity() {
             startActivity(openMainActivity)
             return true
         } else if (item.itemId == R.id.menu_save) {
-            saveUser()
+//            saveUser()
             startActivity(openMainActivity)
             return true
         }
@@ -60,52 +55,79 @@ class SignupActivity : AppCompatActivity() {
         return true
     }
 
-    private fun saveUser() {
-        val userName = binding.editTextUserName.text.toString()
-        val userEmail = binding.editTextUserEmail.text.toString()
-        val userPassword = binding.editTextUserPassword.text.toString()
-        val userCity = binding.editTextUserCity.text.toString()
-        val userBirthDate = binding.editTextUserBirthdate.text.toString()
-        var userGamerLevelRange = binding.sliderGamerLevel.value
-        var userLevel: GamerLevels
-
-        if (userGamerLevelRange < 25) {
-            userLevel = GamerLevels.NOOB
-        } else if (userGamerLevelRange < 50) {
-            userLevel = GamerLevels.CASUAL
-        } else if (userGamerLevelRange < 75) {
-            userLevel = GamerLevels.ADVANCED
-        } else {
-            userLevel = GamerLevels.COMPETITIVE
-        }
-
-        val userInfos = User(
-            0,
-            userName,
-            userEmail,
-            userPassword,
-            "Playstation",
-            userCity,
-            userBirthDate,
-            userLevel,
-            'M')
-
-        userRepository = UserRepository(this)
-        userRepository.save(userInfos)
-        Toast.makeText(this, "Usuario salvo", Toast.LENGTH_SHORT).show()
+    private fun getSpinnerValue(): String {
+        return binding.favoriteConsoleSpinner.selectedItem.toString()
     }
 
-    private fun setGamerLevel(): String {
-        val sliderGamerLevel = binding.sliderGamerLevel.value.toString().toInt()
-        if (sliderGamerLevel < 25) {
-            return GamerLevels.NOOB.toString()
-        } else if (sliderGamerLevel >= 25 && sliderGamerLevel< 50) {
-            return GamerLevels.CASUAL.toString()
-        } else if (sliderGamerLevel >= 50 && sliderGamerLevel< 75) {
-            return GamerLevels.ADVANCED.toString()
-        } else if (sliderGamerLevel >= 75 && sliderGamerLevel< 100) {
-            return GamerLevels.COMPETITIVE.toString()
+    private fun sliderListen() {
+        binding.sliderGamerLevel.addOnChangeListener { slider, value, fromUser ->
+            binding.textviewGamerLevel.text = getSliderLevel(binding.sliderGamerLevel.value.toInt()).toString()
         }
-        return GamerLevels.NOOB.toString()
+    }
+
+    private fun getSliderLevel(pos: Int): GamerLevels {
+        if (pos <= 40) return GamerLevels.NOOB
+        if (pos in 41..60) return GamerLevels.CASUAL
+        if (pos in 61..81) return GamerLevels.ADVANCED
+        return GamerLevels.COMPETITIVE
+    }
+
+    private fun validateForm(): Boolean {
+        var validated = true
+
+        val inputs = listOf(
+            binding.editTextUserName,
+            binding.editTextUserEmail,
+            binding.editTextUserCity,
+            binding.editTextUserBirthdate,
+            binding.editTextUserPassword
+        )
+
+        inputs.forEach { editText ->  
+            if (editText.text.isEmpty()) {
+                editText.error = "Required field!"
+                validated = false
+            }
+        }
+
+        if (binding.genderRadiogroup.checkedRadioButtonId.toString().isEmpty()) {
+            Toast.makeText(this, "Select one gender!", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        if (getSpinnerValue().isEmpty()) {
+            Toast.makeText(this, "Select one console!", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        return validated
+    }
+
+    private fun getForm(): User {
+        val (email, name, city, birthday, password) = listOf(
+            binding.editTextUserEmail.text.toString(),
+            binding.editTextUserName.text.toString(),
+            binding.editTextUserCity.text.toString(),
+            binding.editTextUserBirthdate.text.toString(),
+            binding.editTextUserPassword.text.toString()
+        )
+        val level = getSliderLevel(binding.sliderGamerLevel.value.toInt())
+        val console = ConsoleRepository(this).getConsoleByName(getSpinnerValue())
+        val picture = getByteArrayFromBitmap(profilePicture)
+        // genre
+        val inputRadio = binding.genreRadioGroup.checkedRadioButtonId
+        val genre = findViewById<RadioButton>(inputRadio).text.toString()[0]
+
+        return User(
+            profilePicture = picture,
+            userName = name,
+            email = email,
+            password = password,
+            birthday = birthday,
+            city = city,
+            console = console,
+            level = level,
+            genre = genre
+        )
     }
 }
