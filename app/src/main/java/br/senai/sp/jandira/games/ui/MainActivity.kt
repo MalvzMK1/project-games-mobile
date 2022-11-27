@@ -37,18 +37,6 @@ class MainActivity : AppCompatActivity() {
 
         Toast.makeText(this, "TESTE -> ${ConsoleRepository(this).getConsoleByName("Playstation 4")}", Toast.LENGTH_SHORT).show()
 
-        ConsoleRepository(this).save(Console(consoleName = "Playstation 4"))
-        ConsoleRepository(this).save(Console(consoleName = "Playstation 5"))
-        ConsoleRepository(this).save(Console(consoleName = "Playstation 3"))
-        ConsoleRepository(this).save(Console(consoleName = "Playstation 2"))
-        ConsoleRepository(this).save(Console(consoleName = "Atari"))
-        ConsoleRepository(this).save(Console(consoleName = "PC"))
-        ConsoleRepository(this).save(Console(consoleName = "Xbox Series S/X"))
-        ConsoleRepository(this).save(Console(consoleName = "Xbox 360"))
-        ConsoleRepository(this).save(Console(consoleName = "Nintendo Switch"))
-        ConsoleRepository(this).save(Console(consoleName = "Nintendo 64"))
-        ConsoleRepository(this).save(Console(consoleName = "Xbox One"))
-
     }
 
     override fun onResume() {
