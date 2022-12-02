@@ -5,16 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import br.senai.sp.jandira.games.databinding.ActivityMainBinding
-import br.senai.sp.jandira.games.model.Console
-import br.senai.sp.jandira.games.model.User
-import br.senai.sp.jandira.games.repository.ConsoleRepository
 import br.senai.sp.jandira.games.repository.UserRepository
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var cal = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,28 +26,34 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.enterButton.setOnClickListener {
-            val openActivityGamesList = Intent(this, GamesListActivity::class.java)
-            startActivity(openActivityGamesList)
+            if(validateLogin()) {
+                val openActivityGamesList = Intent(this, GamesListActivity::class.java)
+                startActivity(openActivityGamesList)
+            } else {
+                Toast.makeText(this, "Verifique o email e a senha novamente ou crie o usuário", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        Toast.makeText(this, "TESTE -> ${ConsoleRepository(this).getConsoleByName("Playstation 4")}", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "TEST -> ${ConsoleRepository(this).getConsoleByName("Playstation 4")}", Toast.LENGTH_SHORT).show()
 
-        ConsoleRepository(this).save(Console(consoleName = "Playstation 4"))
-        ConsoleRepository(this).save(Console(consoleName = "Playstation 5"))
-        ConsoleRepository(this).save(Console(consoleName = "Playstation 3"))
-        ConsoleRepository(this).save(Console(consoleName = "Playstation 2"))
-        ConsoleRepository(this).save(Console(consoleName = "Atari"))
-        ConsoleRepository(this).save(Console(consoleName = "PC"))
-        ConsoleRepository(this).save(Console(consoleName = "Xbox Series S/X"))
-        ConsoleRepository(this).save(Console(consoleName = "Xbox 360"))
-        ConsoleRepository(this).save(Console(consoleName = "Nintendo Switch"))
-        ConsoleRepository(this).save(Console(consoleName = "Nintendo 64"))
-        ConsoleRepository(this).save(Console(consoleName = "Xbox One"))
+    }
 
+    private fun validateLogin(): Boolean {
+        val usersList = UserRepository(this).getAllUsers()
+        usersList.forEach { user ->
+            if (binding.editTextEmailLogin.text.toString() == user.email && binding.editTextPasswordLogin.text.toString() == user.password) {
+                val sharedPreferences = getSharedPreferences("datas", MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putInt("user_id", user.id)
+                editor.commit()
+                return true
+            }
+        }
+        return false
     }
 
     override fun onResume() {
         super.onResume()
-        Toast.makeText(this, "TESTE -> ${UserRepository(this).getAllUsers()}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "TEST -> ${UserRepository(this).getAllUsers()}", Toast.LENGTH_SHORT).show()
     }
 }

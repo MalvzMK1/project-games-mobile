@@ -61,7 +61,10 @@ class SignupActivity : AppCompatActivity() {
         } else if (item.itemId == R.id.menu_save) {
             if(validateForm()) {
                 UserRepository(this).save(getForm())
+                Toast.makeText(this, "Usuário criado com sucesso", Toast.LENGTH_SHORT).show()
                 startActivity(openMainActivity)
+            } else {
+                Toast.makeText(this, "Está faltando alguma informação", Toast.LENGTH_SHORT).show()
             }
             return false
         }

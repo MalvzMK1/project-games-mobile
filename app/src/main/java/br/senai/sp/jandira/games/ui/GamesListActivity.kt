@@ -1,7 +1,10 @@
 package br.senai.sp.jandira.games.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +12,8 @@ import br.senai.sp.jandira.games.R
 import br.senai.sp.jandira.games.adapter.GamesAdapter
 import br.senai.sp.jandira.games.databinding.ActivityGamesListBinding
 import br.senai.sp.jandira.games.repository.GameRepository
+import br.senai.sp.jandira.games.repository.UserRepository
+import br.senai.sp.jandira.games.utils.getBitmapFromByteArray
 
 
 class GamesListActivity : AppCompatActivity() {
@@ -32,6 +37,19 @@ class GamesListActivity : AppCompatActivity() {
 
         rvGames.adapter = adapterGames
 
+        loadUserProfile()
+
+    }
+
+    private fun loadUserProfile() {
+        val sharedPreferences = getSharedPreferences("datas", MODE_PRIVATE)
+        val userId = sharedPreferences.getInt("user_id", 1)
+        val userInfos = UserRepository(this).getUser(userId)
+
+        binding.textViewUserName.text = userInfos.name
+        binding.textViewUserEmail.text = userInfos.email
+        binding.userProfilePhoto.setImageBitmap(getBitmapFromByteArray(userInfos.profilePhoto))
+        binding.textViewUserGamerLevel.text = userInfos.gamerLevel.toString()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -40,4 +58,15 @@ class GamesListActivity : AppCompatActivity() {
 
         return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val openNewGameActivity = Intent(this, NewGameActivity::class.java)
+
+        if(item.itemId == R.id.menu_more) {
+            startActivity(openNewGameActivity)
+            return true
+        }
+        return true
+    }
+
 }

@@ -189,6 +189,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/joystick"
+        android:drawablePadding="4dp"
         android:fontFamily="@font/roboto"
         android:gravity="bottom"
         android:text="@string/text_registered_games"
