@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
 //        Toast.makeText(this, "TEST -> ${ConsoleRepository(this).getConsoleByName("Playstation 4")}", Toast.LENGTH_SHORT).show()
 
+<<<<<<< HEAD
     }
 
     private fun validateLogin(): Boolean {
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return false
+=======
+>>>>>>> 2be3973a25aa563237b3f817a99268a15128598e
     }
 
     override fun onResume() {
